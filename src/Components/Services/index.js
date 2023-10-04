@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Services = ({data}) => {
+const index = ({data}) => {
   return (
-    <div>
-       <div className='grid-container'>
+    <>
+     <div className='services-heading'>
+                    <h2>Services</h2>
+                </div>
+      <div className='grid-container'>
                 {data.map((item) => {
                     return (
                         <div className="box1">
@@ -15,8 +18,8 @@ const Services = ({data}) => {
                 })
                 }
             </div>
-    </div>
+    </>
   )
 }
 
-export default Services
+export default index

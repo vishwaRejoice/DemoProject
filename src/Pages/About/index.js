@@ -1,6 +1,6 @@
   import React, { useState } from 'react'
-  import image from "../Images/unsplash_6anudmpILw4.png"
-  import "../css/About.scss"
+  import image from "../../Images/unsplash_6anudmpILw4.png"
+  import "./About.scss"
   const About = () => {
    
     

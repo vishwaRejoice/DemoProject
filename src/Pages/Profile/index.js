@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form, Modal, Table } from 'react-bootstrap'
-import "../css/Navbar.scss"
+import "../../Components/Header/Navbar.scss";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,7 +9,6 @@ const Profile = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [values, setValues] = useState();
   const [editIndex, setEditIndex] = useState(null);
-console.log("ddsdsd",typeof entries)
 
   useEffect(() => {
     const storedEntries = localStorage.getItem('userEmail');

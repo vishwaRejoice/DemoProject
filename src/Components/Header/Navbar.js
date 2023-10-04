@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink, Navigate, Route, useNavigate } from 'react-router-dom'
-import "../css/Navbar.scss"
+import "./Navbar.scss"
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, Modal } from 'react-bootstrap';
 import { MDBCheckbox } from 'mdb-react-ui-kit';

@@ -1,10 +1,10 @@
 import './App.css';
-import About from './Components/About';
-import Home from './Components/Home';
-import Navbar from './Components/Navbar';
+import About from '../src/Pages/About/index';
+import Home from '../src/Pages/Home/index';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Profile from './Components/Profile';
 import Protected from './Components/Protected';
+import Profile from './Pages/Profile';
+import Navbar from './Components/Header/Navbar';
 
 function App() {
   return (
