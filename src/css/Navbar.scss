@@ -1,0 +1,131 @@
+// /* Add this to your CSS file, e.g., Navbar.css */
+
+// .navbar {
+//     background-color: #333;
+//     color: #fff;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 10px 20px;
+//     /* width: 1440px; */
+//   }
+
+  
+//   .navbar-brand a {
+//     color: #fff;
+//     text-decoration: none;
+//     font-size: 1.5rem;
+//   }
+  
+//   .navbar-menu {
+//     list-style: none;
+//     display: flex;
+//     gap: 20px;
+//     margin-top: -20px;
+//     margin-left: 40px;
+//   }
+  
+//   .navbar-menu li a {
+//     color: #fff;
+//     text-decoration: none;
+//     font-weight: bold;
+//   }
+  
+//   .navbar-menu li a:hover {
+//     border-bottom: 2px solid #fff;
+//     padding-bottom: 2px;
+//   }
+//   .loginbtn{
+//     padding:10px 20px;
+//   }
+//   .eye-icon{
+//     margin-top: -30px;
+//     margin-left: 92%;
+//   }
+//   .footer{
+//     margin-left: 50%;
+//   }
+//   .footer1{
+//     margin-left: 65%;
+//   }
+//   /* .modal-backdrop {
+//     display: flex !important;
+//     align-items: center;
+//     justify-content: center;
+//   } */
+  
+//   /* Style for the modal content */
+
+  
+//   /* Style for the modal body */
+  .password-toggle-icon{
+    margin-top: -65px;
+    margin-left: 94%;
+  }
+  .footer
+  {
+        margin-left: 50%;
+      }
+      .footer1{
+        margin-left: 65%;
+      }
+
+.navbar{
+    color: #14171F;
+    padding: 10px 20px;
+    // align-items: center;
+    height: 90px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.navbar-logo{
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 24px; 
+    color: #14171F;
+   padding-left: 5%;
+}
+.navbar-logo a{
+    font-size: 30px;
+    padding-left: 20px;
+}
+.navbar-menu  {
+    list-style-type: none;
+    justify-content: space-between; 
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-right: 10%;
+}
+
+.navbar-menu li {
+    margin-right: 20px;
+
+}
+.navbar-menu li a {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    color: #14171F;
+
+    // color: #fff;
+    font-size: 25px;
+    font-weight: bold; 
+  }
+  .navbar-menu li a:hover{
+    color: #2947A9;
+  }
+  .navbar-menu button{
+    background-color: #14171F;
+
+  }
+  .navbar-menu button:hover{
+    background-color: #ffff;
+    color: #14171F;
+    border: 2px solid black;
+  }
+  .loginbtn{
+    border-radius: 2%;
+    margin-left: 20px;
+    background-color: #14171F;
+  }
+
+  
