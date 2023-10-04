@@ -70,7 +70,7 @@ const Navbar = () => {
       password: "222"
     }
   ]
-  const [staticLoginData, setStaticLoginData] = useState({staticData})
+  const [staticLoginData, setStaticLoginData] = useState({ staticData })
   console.log("aaa", staticLoginData)
   // {
   //   staticLoginData.map((item)=>{
@@ -142,7 +142,7 @@ const Navbar = () => {
     //   isFormValid = false;
     //   errors["email"] = "Please enter valid email !";
     // }
-    if(values.password == aff?.[0]?.password && values.email == aff?.[0]?.email){
+    if (values.password == aff?.[0]?.password && values.email == aff?.[0]?.email) {
       isFormValid = true;
     }
     const userExits = staticLoginData?.staticData?.find((item) => item?.email === values?.email && item?.password === values?.password)
@@ -180,7 +180,7 @@ const Navbar = () => {
       setValues({});
       setErrors({});
       navigate("/");
-    }else{
+    } else {
       toast.error('=====>User not found')
       console.log("=====>User not found")
     }
@@ -200,9 +200,8 @@ const Navbar = () => {
     localStorage.removeItem('login');
     navigate('/');
     setLoggedIn(false);
-
   };
- 
+
 
   return (
     <nav className="navbar">
