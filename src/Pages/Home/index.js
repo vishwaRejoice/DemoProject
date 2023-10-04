@@ -133,7 +133,7 @@ const Home = () => {
             "description": "Cursus semper tellus volutpat aliquet lacus."
         },
         {
-            "image": icon,
+            "image": icon1,
             "name": "Best Designs",
             "description": "Ultricies at ipsum nunc, tristique nam lectus."
         },

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form, Modal, Table } from 'react-bootstrap'
-import "../../Components/Header/Navbar.scss";
+import "../../Components/Layout/Header/Navbar.scss";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
