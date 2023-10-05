@@ -1,5 +1,5 @@
   import React, { useState } from 'react'
-  import image from "../../Images/unsplash_6anudmpILw4.png"
+  import image from "../../Assets/Images/unsplash_6anudmpILw4.png"
   import "./About.scss"
   const About = () => {
    

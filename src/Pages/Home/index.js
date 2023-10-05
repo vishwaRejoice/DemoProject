@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import myImage from "../../Images/Hero.png"
+import myImage from "../../Assets/Images/Hero.png"
 import '../../Pages/Home/Home.scss';
-import icon from "../../Images/Vector (5).png"
-import icon1 from "../../Images/icon.png"
-import construction from "../../Images/icon (2).png"
-import renovation from "../../Images/Vector (6).png"
-import Consultation from "../../Images/icon (5).png"
-import repair from "../../Images/icon (6).png"
-import architectue from "../../Images/icon (4).png"
-import electric from "../../Images/icon (7).png"
-import line from "../../Images/Rectangle 18.png"
+import icon from "../../Assets/Images/Vector (5).png"
+import icon1 from "../../Assets/Images/icon.png"
+import construction from "../../Assets/Images/icon (2).png"
+import renovation from "../../Assets/Images/Vector (6).png"
+import Consultation from "../../Assets/Images/icon (5).png"
+import repair from "../../Assets/Images/icon (6).png"
+import architectue from "../../Assets/Images/icon (4).png"
+import electric from "../../Assets/Images/icon (7).png"
+import line from "../../Assets/Images/Rectangle 18.png"
 import ServicesData from "../../Components/Services/index"
 import ReputationData from "../../Components/Reputation/index";
 import PhotoListData from "../../Components/PhotoList/index";
