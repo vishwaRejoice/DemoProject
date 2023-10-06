@@ -17,12 +17,6 @@ const Profile = () => {
     setEntries(storedEntries || loginData);
   }, []);
 
-  // useEffect(()=>{
-  //   if(performance.navigation.type === 1){
-  //     localStorage.clear();
-  //   }
-  // },[]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -39,27 +33,12 @@ const Profile = () => {
   }
   console.log("values",values)
   console.log("entries",entries)
-//  const handleAddData = () =>{
-//   const newData = values
-//   console.log("newdata",newData)
-//   const updatedEntries = [...entries , newData];
 
-//     localStorage.setItem("userEmail", JSON.stringify(updatedEntries));
-      
-//     setEntries(updatedEntries);
-//     setValues({phone:"",address:""});
-//     setModalOpen(false);
-//     toast.success('Data added successfully')
-//  };
 const handleAddData = () => {
   const newData = values;
   console.log("newdata", newData);
-
-  // Ensure that entries is initialized as an array
   const updatedEntries = Array.isArray(entries) ? [...entries, newData] : [newData];
-
   localStorage.setItem("userEmail", JSON.stringify(updatedEntries));
-
   setEntries(updatedEntries);
   setValues({ phone: "", address: "" });
   setModalOpen(false);
@@ -71,6 +50,7 @@ const handleAddData = () => {
   setValues(entries[index]);
   setModalOpen(true);
  };
+
  const handleDelete = (index) => {
   if (window.confirm('Are you sure you want to delete this entry?')) {
     const updatedEntries = [...entries];
@@ -103,11 +83,7 @@ const handleEditData = () => {
     <br></br>
       <h3>CRUD TABLE  <Button variant="primary" onClick={handleAdd}>ADD DATA</Button></h3>
       <br></br>
-      {/* {
-      modalOpen && <>
-          wwwww
-      </>
-     } */}
+      
       <Modal show={modalOpen} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{editIndex !== null ? "EDIT DATA" : "ADD DATA"}</Modal.Title>
@@ -141,7 +117,6 @@ const handleEditData = () => {
 
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Close</Button>
-          {/* <Button variant="primary" onClick={handleAddData}>Add</Button> */}
           <Button variant="primary" onClick={()=>{
               editIndex !== null ? handleEditData() :  handleAddData();
             }}>

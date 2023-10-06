@@ -77,17 +77,7 @@ const Navbar = () => {
   ]
   const [staticLoginData, setStaticLoginData] = useState({ staticData })
   console.log("aaa", staticLoginData)
-  // {
-  //   staticLoginData.map((item)=>{
-  //     console.log("dadas",item)
-  //     return(
-  //       <div>
-  //         <p>Email : {item?.email}</p>
-  //         <p>Password  : {item?.password}</p>
-  //       </div>
-  //     )
-  //   })
-  // }
+
   const aff = JSON.parse(localStorage.getItem("userEmail"));
   const validation = () => {
     let isFormValid = true;
@@ -137,15 +127,6 @@ const Navbar = () => {
     if (!values?.password && values?.password === "") {
       errors["password"] = "Please enter password!";
     }
-
-    // if (values.password !== aff?.[0]?.password) {
-    //   isFormValid = false;
-    //   errors["password"] = "Please enter valid password!";
-    // }
-    // if (values.email !== aff?.[0]?.email) {
-    //   isFormValid = false;
-    //   errors["email"] = "Please enter valid email !";
-    // }
     if (values.password == aff?.[0]?.password && values.email == aff?.[0]?.email) {
       isFormValid = true;
     }
@@ -159,21 +140,17 @@ const Navbar = () => {
   console.log("111111", staticLoginData)
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
     if (validation()) {
       setLoading(true);
       toast.success("User signup successfully")
       const storedData = JSON.parse(localStorage.getItem('userEmail')) || [];
       storedData.push(values);
       localStorage.setItem('userEmail', JSON.stringify(storedData));
-      // handleClose();
       setValues({ email: "", password: "" });
       setShowLoginModal(true);
     }else{
       setLoading(false);
-
     }
-
   };
 
   const handleLogin = () => {
@@ -202,7 +179,6 @@ const Navbar = () => {
     const dataToRemove = {};
     const storedData = JSON.parse(localStorage.getItem('userEmail')) || [];
     const updatedData = storedData.filter(item => {
-
       return item.email !== dataToRemove.email;
     });
     localStorage.setItem('userEmail', JSON.stringify(updatedData));
@@ -267,7 +243,7 @@ const Navbar = () => {
               >
                 {errors?.name}
               </span>
-              {/* <br></br> */}
+  
               <Form.Group controlId="formBasicEmail" style={{marginTop:"20px"}}>
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" onKeyDown={(e) => {
@@ -284,7 +260,6 @@ const Navbar = () => {
               >
                 {errors?.email}
               </span>
-              {/* <br></br> */}
               {!showLoginModal && (
                 <Form.Group controlId="formBasicEmail" style={{marginTop:"20px"}}>
                   <Form.Label>Phone Number</Form.Label>
