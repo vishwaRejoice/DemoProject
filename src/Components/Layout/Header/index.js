@@ -5,13 +5,15 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, Modal } from 'react-bootstrap';
 import { MDBCheckbox } from 'mdb-react-ui-kit';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [loading,setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
@@ -159,21 +161,25 @@ const Navbar = () => {
   const handleSubmit = (e) => {
     // e.preventDefault();
     if (validation()) {
-      console.log("first")
+      setLoading(true);
+      toast.success("User signup successfully")
       const storedData = JSON.parse(localStorage.getItem('userEmail')) || [];
       storedData.push(values);
       localStorage.setItem('userEmail', JSON.stringify(storedData));
       // handleClose();
       setValues({ email: "", password: "" });
       setShowLoginModal(true);
+    }else{
+      setLoading(false);
+
     }
 
   };
 
   const handleLogin = () => {
     if (validationForm()) {
-      console.log("=====>login successfully")
-      toast.success("User logged in")
+      setLoading(true);
+      toast.success("User logged in successfully")
       localStorage.setItem("login", JSON.stringify(values));
       setShow(false);
       setShowLoginModal(false);
@@ -183,14 +189,16 @@ const Navbar = () => {
       setErrors({});
       navigate("/");
     } else {
-      toast.error('=====>User not found')
-      console.log("=====>User not found")
+      toast.error('User not found')
+      setLoading(false)
     }
 
 
   };
 
   const handleLogout = () => {
+    toast.success("User logged out")
+
     const dataToRemove = {};
     const storedData = JSON.parse(localStorage.getItem('userEmail')) || [];
     const updatedData = storedData.filter(item => {
@@ -206,6 +214,8 @@ const Navbar = () => {
 
 
   return (
+    <>
+    <ToastContainer/>
     <nav className="navbar">
       <div className="navbar-logo">
         <a>LOGO</a>
@@ -409,7 +419,7 @@ const Navbar = () => {
 
 
     </nav>
-
+    </>
 
   )
 }
