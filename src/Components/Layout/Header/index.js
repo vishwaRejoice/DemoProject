@@ -5,9 +5,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, Modal } from 'react-bootstrap';
 import { MDBCheckbox } from 'mdb-react-ui-kit';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import logo from "../../../Assets/Images/logo.png"
 import logoimg from "../../../Assets/Images/logoimg.png"
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -192,7 +193,7 @@ const Navbar = () => {
 
   return (
     <>
-    <ToastContainer/>
+    <ToastContainer autoClose={500} />
     <nav className="navbar">
       <div className="navbar-logo">
         <img src={logoimg} alt="logo" />
@@ -204,10 +205,7 @@ const Navbar = () => {
         <li><NavLink to="/profile">Profile</NavLink></li>
         {loggedIn || LoginData ? (
           <Button className="loginbtn btn" onClick={handleLogout}>
-            Logout.'
-            
-            
-            '
+            Logout
           </Button>
         ) : (
           <>

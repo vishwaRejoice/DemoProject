@@ -81,7 +81,7 @@ const handleEditData = () => {
     <>
     <ToastContainer/>
     <br></br>
-      <h3>CRUD TABLE  <Button variant="primary" onClick={handleAdd}>ADD DATA</Button></h3>
+      <h3><Button variant="primary" onClick={handleAdd}>ADD DATA</Button></h3>
       <br></br>
       
       <Modal show={modalOpen} onHide={handleClose}>
@@ -128,7 +128,7 @@ const handleEditData = () => {
         <thead>
           <tr>
           <th>Index</th>
-            <th>Phonemlmn;hup No</th>
+            <th>Phone No</th>
             <th>Address</th>
             <th>Actions</th>
           </tr>
@@ -141,8 +141,8 @@ const handleEditData = () => {
                 <td>{entry.phone}</td>
                 <td>{entry.address}</td>
                 <td>
-                  <Button variant='primary'style={{marginRight:"20px"}} onClick={()=>handleEdit(index)}>Edit</Button>
-                  <Button variant='danger' onClick={()=>handleDelete(index)}>Delete</Button>
+                  <Button variant='primary'style={{marginRight:"20px", width:"100px"}} onClick={()=>handleEdit(index)}>Edit</Button>
+                  <Button variant='danger' style={{marginRight:"20px", width:"100px"}}   onClick={()=>handleDelete(index)}>Delete</Button>
                 </td>
               </tr>
             ))}
