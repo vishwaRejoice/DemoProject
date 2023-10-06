@@ -6,6 +6,8 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import { MDBCheckbox } from 'mdb-react-ui-kit';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import logo from "../../../Assets/Images/logo.png"
+import logoimg from "../../../Assets/Images/logoimg.png"
 
 
 
@@ -24,9 +26,9 @@ const Navbar = () => {
     confirmPassword: '',
     agreed: false,
   });
-  console.log("loggedIn",loggedIn)
+  console.log("loggedIn", loggedIn)
   const LoginData = JSON.parse(localStorage?.getItem("login"));
-  console.log("sfy",LoginData)
+  console.log("sfy", LoginData)
   const handleShow = () => {
     setShow(true);
     setShowLoginModal(false);
@@ -75,17 +77,7 @@ const Navbar = () => {
   ]
   const [staticLoginData, setStaticLoginData] = useState({ staticData })
   console.log("aaa", staticLoginData)
-  // {
-  //   staticLoginData.map((item)=>{
-  //     console.log("dadas",item)
-  //     return(
-  //       <div>
-  //         <p>Email : {item?.email}</p>
-  //         <p>Password  : {item?.password}</p>
-  //       </div>
-  //     )
-  //   })
-  // }
+
   const aff = JSON.parse(localStorage.getItem("userEmail"));
   const validation = () => {
     let isFormValid = true;
@@ -136,14 +128,6 @@ const Navbar = () => {
       errors["password"] = "Please enter password!";
     }
 
-    // if (values.password !== aff?.[0]?.password) {
-    //   isFormValid = false;
-    //   errors["password"] = "Please enter valid password!";
-    // }
-    // if (values.email !== aff?.[0]?.email) {
-    //   isFormValid = false;
-    //   errors["email"] = "Please enter valid email !";
-    // }
     if (values.password == aff?.[0]?.password && values.email == aff?.[0]?.email) {
       isFormValid = true;
     }
@@ -208,17 +192,19 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <a>LOGO</a>
+        <img src={logoimg} alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
       <ul className="navbar-menu">
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/profile">Profile</NavLink></li>
-
-
-        {loggedIn || LoginData? (
+        {loggedIn || LoginData ? (
           <Button className="loginbtn btn" onClick={handleLogout}>
-            Logout
+            Logout.'
+            
+            
+            '
           </Button>
         ) : (
           <>
@@ -342,7 +328,7 @@ const Navbar = () => {
               </span>
               <br></br>
               {!showLoginModal && (
-                <Form.Group controlId="formBasicPassword" style={{marginTop:"-30px"}}>
+                <Form.Group controlId="formBasicPassword" style={{ marginTop: "-30px" }}>
                   <Form.Label>Confirm Password</Form.Label>
                   <Form.Control type={confirmPasswordVisible ? 'text' : 'password'} placeholder="Password" onKeyDown={(e) => {
                     if (e.key === " ") {
@@ -375,7 +361,7 @@ const Navbar = () => {
               </span>
               <br></br>
               {!showLoginModal && (
-                <MDBCheckbox  name='agreed' type='checkbox' id='flexCheckDefault' label='I agree to the terms and conditions' onChange={handleChange} checked={values?.agreed} />
+                <MDBCheckbox name='agreed' type='checkbox' id='flexCheckDefault' label='I agree to the terms and conditions' onChange={handleChange} checked={values?.agreed} />
               )}
               <span
                 style={{
