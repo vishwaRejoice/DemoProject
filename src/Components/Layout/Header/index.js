@@ -14,6 +14,7 @@ import logoimg from "../../../Assets/Images/logoimg.png"
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [loading,setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
@@ -127,7 +128,6 @@ const Navbar = () => {
     if (!values?.password && values?.password === "") {
       errors["password"] = "Please enter password!";
     }
-
     if (values.password == aff?.[0]?.password && values.email == aff?.[0]?.email) {
       isFormValid = true;
     }
@@ -141,23 +141,23 @@ const Navbar = () => {
   console.log("111111", staticLoginData)
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
     if (validation()) {
-      console.log("first")
+      setLoading(true);
+      toast.success("User signup successfully")
       const storedData = JSON.parse(localStorage.getItem('userEmail')) || [];
       storedData.push(values);
       localStorage.setItem('userEmail', JSON.stringify(storedData));
-      // handleClose();
       setValues({ email: "", password: "" });
       setShowLoginModal(true);
+    }else{
+      setLoading(false);
     }
-
   };
 
   const handleLogin = () => {
     if (validationForm()) {
-      console.log("=====>login successfully")
-      toast.success("User logged in")
+      setLoading(true);
+      toast.success("User logged in successfully")
       localStorage.setItem("login", JSON.stringify(values));
       setShow(false);
       setShowLoginModal(false);
@@ -167,18 +167,19 @@ const Navbar = () => {
       setErrors({});
       navigate("/");
     } else {
-      toast.error('=====>User not found')
-      console.log("=====>User not found")
+      toast.error('User not found')
+      setLoading(false)
     }
 
 
   };
 
   const handleLogout = () => {
+    toast.success("User logged out")
+
     const dataToRemove = {};
     const storedData = JSON.parse(localStorage.getItem('userEmail')) || [];
     const updatedData = storedData.filter(item => {
-
       return item.email !== dataToRemove.email;
     });
     localStorage.setItem('userEmail', JSON.stringify(updatedData));
@@ -190,6 +191,8 @@ const Navbar = () => {
 
 
   return (
+    <>
+    <ToastContainer/>
     <nav className="navbar">
       <div className="navbar-logo">
         <img src={logoimg} alt="logo" />
@@ -226,7 +229,7 @@ const Navbar = () => {
           <Modal.Body>
             <Form>
               {!showLoginModal && (
-                <Form.Group controlId="formBasicUsername">
+                <Form.Group controlId="formBasicUsername" style={{marginTop:"20px"}}>
                   <Form.Label>Name</Form.Label>
                   <Form.Control type="text" placeholder="Enter Name" name='name' onKeyDown={(e) => {
                     if (e.key === " ") {
@@ -243,8 +246,8 @@ const Navbar = () => {
               >
                 {errors?.name}
               </span>
-              <br></br>
-              <Form.Group controlId="formBasicEmail">
+  
+              <Form.Group controlId="formBasicEmail" style={{marginTop:"20px"}}>
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" onKeyDown={(e) => {
                   if (e.key === " ") {
@@ -260,9 +263,8 @@ const Navbar = () => {
               >
                 {errors?.email}
               </span>
-              <br></br>
               {!showLoginModal && (
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicEmail" style={{marginTop:"20px"}}>
                   <Form.Label>Phone Number</Form.Label>
                   <Form.Control type="number" placeholder="Enter phno"
                     name='phone'
@@ -287,9 +289,8 @@ const Navbar = () => {
               >
                 {errors?.phone}
               </span>
-              <br></br>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicPassword" style={{marginTop:"20px"}}>
                 <Form.Label>Password</Form.Label>
 
                 <Form.Control
@@ -326,7 +327,7 @@ const Navbar = () => {
               >
                 {errors?.password}
               </span>
-              <br></br>
+             
               {!showLoginModal && (
                 <Form.Group controlId="formBasicPassword" style={{ marginTop: "-30px" }}>
                   <Form.Label>Confirm Password</Form.Label>
@@ -359,7 +360,7 @@ const Navbar = () => {
               >
                 {errors?.confirmPassword}
               </span>
-              <br></br>
+              
               {!showLoginModal && (
                 <MDBCheckbox name='agreed' type='checkbox' id='flexCheckDefault' label='I agree to the terms and conditions' onChange={handleChange} checked={values?.agreed} />
               )}
@@ -371,7 +372,6 @@ const Navbar = () => {
               >
                 {errors?.agreed}
               </span>
-              <br></br>
             </Form>
           </Modal.Body>
           <Modal.Footer>
@@ -395,7 +395,7 @@ const Navbar = () => {
 
 
     </nav>
-
+    </>
 
   )
 }
