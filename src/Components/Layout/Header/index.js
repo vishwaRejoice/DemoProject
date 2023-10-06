@@ -87,7 +87,6 @@ const Navbar = () => {
   //   })
   // }
   const aff = JSON.parse(localStorage.getItem("userEmail"));
-  console.log("rrrr", aff?.[0].email)
   const validation = () => {
     let isFormValid = true;
     let errors = {};
