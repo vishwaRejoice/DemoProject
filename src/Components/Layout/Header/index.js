@@ -342,7 +342,7 @@ const Navbar = () => {
               </span>
               <br></br>
               {!showLoginModal && (
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group controlId="formBasicPassword" style={{marginTop:"-30px"}}>
                   <Form.Label>Confirm Password</Form.Label>
                   <Form.Control type={confirmPasswordVisible ? 'text' : 'password'} placeholder="Password" onKeyDown={(e) => {
                     if (e.key === " ") {
@@ -375,7 +375,7 @@ const Navbar = () => {
               </span>
               <br></br>
               {!showLoginModal && (
-                <MDBCheckbox name='agreed' type='checkbox' id='flexCheckDefault' label='I agree to the terms and conditions' onChange={handleChange} checked={values?.agreed} />
+                <MDBCheckbox  name='agreed' type='checkbox' id='flexCheckDefault' label='I agree to the terms and conditions' onChange={handleChange} checked={values?.agreed} />
               )}
               <span
                 style={{
