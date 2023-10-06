@@ -250,7 +250,7 @@ const Navbar = () => {
           <Modal.Body>
             <Form>
               {!showLoginModal && (
-                <Form.Group controlId="formBasicUsername">
+                <Form.Group controlId="formBasicUsername" style={{marginTop:"20px"}}>
                   <Form.Label>Name</Form.Label>
                   <Form.Control type="text" placeholder="Enter Name" name='name' onKeyDown={(e) => {
                     if (e.key === " ") {
@@ -267,8 +267,8 @@ const Navbar = () => {
               >
                 {errors?.name}
               </span>
-              <br></br>
-              <Form.Group controlId="formBasicEmail">
+              {/* <br></br> */}
+              <Form.Group controlId="formBasicEmail" style={{marginTop:"20px"}}>
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" onKeyDown={(e) => {
                   if (e.key === " ") {
@@ -284,9 +284,9 @@ const Navbar = () => {
               >
                 {errors?.email}
               </span>
-              <br></br>
+              {/* <br></br> */}
               {!showLoginModal && (
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicEmail" style={{marginTop:"20px"}}>
                   <Form.Label>Phone Number</Form.Label>
                   <Form.Control type="number" placeholder="Enter phno"
                     name='phone'
@@ -311,9 +311,8 @@ const Navbar = () => {
               >
                 {errors?.phone}
               </span>
-              <br></br>
 
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group controlId="formBasicPassword" style={{marginTop:"20px"}}>
                 <Form.Label>Password</Form.Label>
 
                 <Form.Control
@@ -350,9 +349,9 @@ const Navbar = () => {
               >
                 {errors?.password}
               </span>
-              <br></br>
+             
               {!showLoginModal && (
-                <Form.Group controlId="formBasicPassword" style={{marginTop:"-30px"}}>
+                <Form.Group controlId="formBasicPassword" >
                   <Form.Label>Confirm Password</Form.Label>
                   <Form.Control type={confirmPasswordVisible ? 'text' : 'password'} placeholder="Password" onKeyDown={(e) => {
                     if (e.key === " ") {
@@ -383,7 +382,7 @@ const Navbar = () => {
               >
                 {errors?.confirmPassword}
               </span>
-              <br></br>
+              
               {!showLoginModal && (
                 <MDBCheckbox  name='agreed' type='checkbox' id='flexCheckDefault' label='I agree to the terms and conditions' onChange={handleChange} checked={values?.agreed} />
               )}
@@ -395,7 +394,6 @@ const Navbar = () => {
               >
                 {errors?.agreed}
               </span>
-              <br></br>
             </Form>
           </Modal.Body>
           <Modal.Footer>
