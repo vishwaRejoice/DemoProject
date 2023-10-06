@@ -24,6 +24,9 @@ const Navbar = () => {
     confirmPassword: '',
     agreed: false,
   });
+  console.log("loggedIn",loggedIn)
+  const LoginData = JSON.parse(localStorage?.getItem("login"));
+  console.log("sfy",LoginData)
   const handleShow = () => {
     setShow(true);
     setShowLoginModal(false);
@@ -214,7 +217,7 @@ const Navbar = () => {
         <li><NavLink to="/profile">Profile</NavLink></li>
 
 
-        {loggedIn ? (
+        {loggedIn || LoginData? (
           <Button className="loginbtn btn" onClick={handleLogout}>
             Logout
           </Button>

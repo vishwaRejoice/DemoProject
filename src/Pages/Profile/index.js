@@ -11,12 +11,17 @@ const Profile = () => {
   const [editIndex, setEditIndex] = useState(null);
 
   useEffect(() => {
-    const storedEntries = localStorage.getItem('userEmail');
-    
-    console.log("cdscd", storedEntries);
-    const parsedEntries = JSON.parse(storedEntries);
-    setEntries(parsedEntries);
+    const storedEntries = JSON.parse(localStorage.getItem('userEmail'));
+    const loginData = JSON.parse(localStorage.getItem("login"));
+    console.log("cdscd", loginData);
+    setEntries(storedEntries || loginData);
   }, []);
+
+  // useEffect(()=>{
+  //   if(performance.navigation.type === 1){
+  //     localStorage.clear();
+  //   }
+  // },[]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,16 +37,35 @@ const Profile = () => {
     setValues({});
     setEditIndex(null);
   }
- const handleAddData = () =>{
-  const newData = { ...values };
-  const updatedEntries = [...entries, newData];
+  console.log("values",values)
+  console.log("entries",entries)
+//  const handleAddData = () =>{
+//   const newData = values
+//   console.log("newdata",newData)
+//   const updatedEntries = [...entries , newData];
 
-    localStorage.setItem("userEmail", JSON.stringify(updatedEntries)); 
-    setEntries(updatedEntries);
-    setValues({phone:"",address:""});
-    setModalOpen(false);
-    toast.success('Data added successfully')
- };
+//     localStorage.setItem("userEmail", JSON.stringify(updatedEntries));
+      
+//     setEntries(updatedEntries);
+//     setValues({phone:"",address:""});
+//     setModalOpen(false);
+//     toast.success('Data added successfully')
+//  };
+const handleAddData = () => {
+  const newData = values;
+  console.log("newdata", newData);
+
+  // Ensure that entries is initialized as an array
+  const updatedEntries = Array.isArray(entries) ? [...entries, newData] : [newData];
+
+  localStorage.setItem("userEmail", JSON.stringify(updatedEntries));
+
+  setEntries(updatedEntries);
+  setValues({ phone: "", address: "" });
+  setModalOpen(false);
+  toast.success('Data added successfully');
+};
+  
  const handleEdit = (index) =>{
   setEditIndex(index);
   setValues(entries[index]);
