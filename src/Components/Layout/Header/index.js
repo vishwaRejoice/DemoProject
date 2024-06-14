@@ -210,8 +210,13 @@ const Navbar = () => {
       </div>
       <ul className="navbar-menu">
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/profile">Profile</NavLink></li>
+        <li><NavLink to="/profile">crud</NavLink></li>
+        <li><NavLink to="/vscode">Vscode</NavLink></li>
+                <li><NavLink to="/dynmicetable">dynamic table</NavLink></li>
+                <li><NavLink to="/kanban">kanban</NavLink></li>
+
+
+
 
 
         {loggedIn ? (

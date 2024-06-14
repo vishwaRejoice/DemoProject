@@ -36,3 +36,78 @@
     transform: rotate(360deg);
   }
 }
+.input{
+  width: 250px;
+  border:2px solid black;
+  margin :20px
+}
+button{
+  width: 150px;
+  margin: 20px !important;
+ 
+}
+label{
+  padding: 10px;
+}
+/* Style for the main folder */
+.folder {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Style for the subfolder list */
+.subfolder {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+/* Style for the file list */
+.file {
+  margin-left: 40px;
+  list-style-type: circle;
+}
+
+/* Style for the subfile list */
+.subfile {
+  margin-left: 60px;
+  list-style-type: square;
+}
+
+/* General button style */
+button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Optional: style for list items */
+li {
+  margin-bottom: 5px;
+}
+input
+{
+  border: 1px solid red;
+}table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  border: 1px solid black;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
